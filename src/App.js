@@ -1,10 +1,11 @@
 import React from 'react';
+import FilterProvider from './state/filter/Provider'
 
 function App() {
   return (
-    <div className="App">
+    <FilterProvider>
       <h1>my-app</h1>
-    </div>
+    </FilterProvider>
   );
 }
 
