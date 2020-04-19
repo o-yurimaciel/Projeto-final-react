@@ -6,11 +6,11 @@ import { AiFillCloseCircle } from 'react-icons/ai'
 
 import './styles.css'
 
-export default function ToDoModal({ onModalClose, onTitleUpdate, todoId }) {
+export default function ToDoModal({ onModalClose, onTitleUpdate, todoId, findTitle }) {
 
   const { getFieldProps, touched, errors, isValid, handleSubmit } = useFormik({
     initialValues: {
-      title: ''
+      title: findTitle(todoId)
     },
     validationSchema: yup.object({
       title: yup.string().required('Campo obrigatório.')

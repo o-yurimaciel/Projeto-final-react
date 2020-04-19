@@ -50,6 +50,19 @@ export default function ToDoList() {
     [dispatchToTodos],
   )
 
+  const getTitle = useCallback(
+    (id) => {
+      let currentTitle = ''
+      todos.forEach((todo) => {
+        if(todo.id === id) {
+          currentTitle = todo.title
+        }
+      })
+      return currentTitle
+    },
+    [todos],
+  )
+
   return (
     <div className="wrapper-list">
       <ul>
@@ -70,6 +83,7 @@ export default function ToDoList() {
           todoId={currentId}
           onModalClose={handleModalClose} 
           onTitleUpdate={handleUpdateTitle} 
+          findTitle={getTitle}
         />)}
       </ul>
     </div>
