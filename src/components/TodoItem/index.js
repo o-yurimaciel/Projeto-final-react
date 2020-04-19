@@ -1,8 +1,10 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 
-import { FaTrash } from 'react-icons/fa'
+import { FaTrash, FaEdit } from 'react-icons/fa'
 
-export default function TodoItem({ title, id, onDelete, completed, onStatusUpdate }) {
+import styles from './styles.module.css'
+
+export default function TodoItem({ title, id, onDelete, completed, onStatusUpdate, onModalOpen }) {
 
   const [checked, setChecked] = useState(completed)
 
@@ -14,12 +16,27 @@ export default function TodoItem({ title, id, onDelete, completed, onStatusUpdat
     onStatusUpdate(id, checked)
   }, [onStatusUpdate, id, checked])
 
+  const handleClickDelete = useCallback(
+    () => {
+      onDelete(id)
+    },
+    [onDelete, id],
+  )
+
+  const handleClickUpdate = useCallback(
+    () => {
+      onModalOpen(id)
+    },
+    [onModalOpen, id],
+  )
+
   return (
     <li>
-      {title}
+      <span className={completed ? styles.completed : null}>{title}</span>
       <div>
-        <input type="checkbox" value={checked} onChange={handleChange} />
-        <button onClick={onDelete}><FaTrash color="white" size={16} /></button>
+        <button title="Atualizar" onClick={handleClickUpdate}> <FaEdit color="white" size={18} /></button>
+        <input title={!completed ? "Marcar tarefa concluída" : "Desmarcar tarefa"} type="checkbox" value={checked} onChange={handleChange} />
+        <button title="Excluir" onClick={handleClickDelete}> <FaTrash color="white" size={16} /></button>
       </div>
     </li>
   );

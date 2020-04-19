@@ -14,14 +14,14 @@
   flex-direction: column;
   padding-top: 30px;
   margin-bottom: 30px;
-  overflow: hidden;
+  overflow-y: scroll;
 }
 
 .wrapper-list li {
   display: flex;
   justify-content: space-between;
   list-style: none;
-  padding: 10px 80px;
+  padding: 10px 20px;
   margin: 5px 60px;
   background: #7159c1;
   max-width: 100%;
@@ -30,7 +30,12 @@
   font-weight: bold;
 }
 
+.wrapper-list li div input {
+  margin: 0 3px;
+}
+
 .wrapper-list li div button {
   background: transparent;
   border: none;
+  margin: 0 3px;
 }
