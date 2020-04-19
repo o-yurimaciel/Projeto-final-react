@@ -13,8 +13,8 @@ export function updateStatus(id, completed) {
   return {
     type: Types.TOGGLE_UPDATE_STATUS,
     payload: {
-      id,
-      completed
+      id: id,
+      completed: completed
     }
   }
 }
@@ -31,7 +31,7 @@ export function updateTitle(id, title) {
 
 export function remove(id) {
   return {
-    type: Types.TOGGLE_UPDATE_STATUS,
+    type: Types.REMOVE,
     payload: {
       id
     }

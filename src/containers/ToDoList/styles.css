@@ -1,0 +1,36 @@
+.wrapper-list {
+  display: flex;
+  margin-top: 15px;
+  width: 100%;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  background-color: white;
+  border-radius: 4px;
+  height: 600px;
+}
+
+.wrapper-list ul {
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+  padding-top: 30px;
+  margin-bottom: 30px;
+  overflow: hidden;
+}
+
+.wrapper-list li {
+  display: flex;
+  justify-content: space-between;
+  list-style: none;
+  padding: 10px 80px;
+  margin: 5px 60px;
+  background: #7159c1;
+  max-width: 100%;
+  border-radius: 4px;
+  color: white;
+  font-weight: bold;
+}
+
+.wrapper-list li div button {
+  background: transparent;
+  border: none;
+}

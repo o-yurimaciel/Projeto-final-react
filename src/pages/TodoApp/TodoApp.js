@@ -1,5 +1,6 @@
 import React from 'react';
 import ToDoCreator from './../../containers/ToDoCreator'
+import ToDoList from '../../containers/ToDoList';
 
 // import { Container } from './styles';
 
@@ -9,8 +10,10 @@ export default function containers() {
       <header>
         <ToDoCreator />
       </header>
-      {/* <main>list</main>
-      <footer>filter</footer> */}
+      <main>
+        <ToDoList />
+      </main>
+      {/* <footer>filter</footer> */}
     </>
   );
 }
