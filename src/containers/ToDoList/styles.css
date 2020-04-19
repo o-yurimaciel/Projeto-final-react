@@ -20,6 +20,7 @@
 .wrapper-list li {
   display: flex;
   justify-content: space-between;
+  align-items: center;
   list-style: none;
   padding: 10px 20px;
   margin: 5px 60px;
@@ -30,12 +31,44 @@
   font-weight: bold;
 }
 
-.wrapper-list li div input {
-  margin: 0 3px;
-}
-
 .wrapper-list li div button {
   background: transparent;
   border: none;
   margin: 0 3px;
+}
+
+.wrapper-list li div input[type="checkbox"] {
+  margin: 0 3px;
+  width: 45px;
+  height: 20px;
+  position: relative;
+  border-radius: 10px;
+  background-color: white;
+  box-shadow: inset 0 0 4px 2px #aba2eb;
+  appearance: none;
+  cursor: pointer;
+  outline: 0;
+}
+
+.wrapper-list li div input[type="checkbox"]:checked {
+  background-color: #8a7de3;
+  box-shadow: inset 0 0 4px 2px #2e2287;
+}
+
+.wrapper-list li div input[type="checkbox"]::before {
+  content: "";
+  width: 20px;
+  height: 20px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: #7159c1;
+  box-shadow: inset 0 0 4px 2px #2e2287;
+  border-radius: 50%;
+  transform: scale(1.2);
+  transition: all 400ms;
+}
+
+.wrapper-list li div input[type="checkbox"]:checked::before {
+  left: 25px;
 }

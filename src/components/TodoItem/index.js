@@ -35,8 +35,13 @@ export default function TodoItem({ title, id, onDelete, completed, onStatusUpdat
       <span className={completed ? styles.completed : null}>{title}</span>
       <div>
         <button title="Atualizar" onClick={handleClickUpdate}> <FaEdit color="white" size={18} /></button>
-        <input title={!completed ? "Marcar tarefa concluída" : "Desmarcar tarefa"} type="checkbox" value={checked} onChange={handleChange} />
-        <button title="Excluir" onClick={handleClickDelete}> <FaTrash color="white" size={16} /></button>
+        <input 
+        title={!completed ? "Concluir tarefa" : "Desmarcar tarefa"} 
+        type="checkbox" 
+        value={checked} 
+        onChange={handleChange} 
+        />
+        <button title="Excluir" onClick={handleClickDelete}> <FaTrash color="white" size={18} /></button>
       </div>
     </li>
   );
