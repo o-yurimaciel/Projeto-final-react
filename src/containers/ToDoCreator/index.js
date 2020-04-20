@@ -10,10 +10,12 @@ export default function ToDoCreator() {
 
   const { todos, dispatchToTodos } = useContext(TodoContext)
 
-  const { getFieldProps, touched, errors, isValid, handleSubmit } = useFormik({
+  const { getFieldProps, errors, handleSubmit } = useFormik({
     initialValues: {
       title: ''
     },
+    validateOnChange: false,
+    validateOnBlur: false,
     validationSchema: yup.object({
       title: yup.string().required('Campo obrigatório.')
     }),
@@ -40,9 +42,9 @@ export default function ToDoCreator() {
           {...getFieldProps('title')}
           ref={inputTitle}/>
 
-          <button disabled={!isValid}>Adicionar tarefa</button>
+          <button>Adicionar tarefa</button>
 
-          {touched.title && errors.title ? (
+          {errors.title ? (
             <small>{errors.title}</small>
           ) : null }
         </form>

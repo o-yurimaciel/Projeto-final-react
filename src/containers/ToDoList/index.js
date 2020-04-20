@@ -1,10 +1,13 @@
 import React, { useContext, useEffect, useCallback, useState } from 'react'
 import TodoContext from '../../state/todo/Context'
+import FilterContext from '../../state/filter/Context'
 import * as todosActions from '../../state/todo/actions'
 
 import './styles.css'
 import TodoItem from '../../components/TodoItem'
-import ToDoModal from '../ToDoModal'
+import ToDoModal from '../ToDoModal'    
+
+import SwitchFilter from '../../utils/SwitchFilter'
 
 export default function ToDoList() {
 
@@ -52,21 +55,18 @@ export default function ToDoList() {
 
   const getTitle = useCallback(
     (id) => {
-      let currentTitle = ''
-      todos.forEach((todo) => {
-        if(todo.id === id) {
-          currentTitle = todo.title
-        }
-      })
+      const currentTitle = todos.find(todo => todo.id === id).title
       return currentTitle
     },
     [todos],
   )
 
+  const { filter } = useContext(FilterContext)
+
   return (
     <div className="wrapper-list">
       <ul>
-        {todos.map(todo => (
+        {SwitchFilter(todos, filter).map(todo => (
           <TodoItem 
             title={todo.title} 
             key={todo.id}

@@ -38,7 +38,7 @@ export default function TodoItem({ title, id, onDelete, completed, onStatusUpdat
         <input 
         title={!completed ? "Concluir tarefa" : "Desmarcar tarefa"} 
         type="checkbox" 
-        value={checked} 
+        checked={checked} 
         onChange={handleChange} 
         />
         <button title="Excluir" onClick={handleClickDelete}> <FaTrash color="white" size={18} /></button>

@@ -1,0 +1,16 @@
+.filter-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.filter-container .filter-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 200px;
+  height: 50px;
+  background-color: white;
+  border-radius: 4px;
+  margin-top: 15px;
+}

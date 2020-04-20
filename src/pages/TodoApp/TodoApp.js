@@ -1,8 +1,7 @@
 import React from 'react';
 import ToDoCreator from './../../containers/ToDoCreator'
 import ToDoList from '../../containers/ToDoList';
-
-// import { Container } from './styles';
+import ToDoFilter from '../../containers/ToDoFilter';
 
 export default function containers() {
   return (
@@ -13,7 +12,9 @@ export default function containers() {
       <main>
         <ToDoList />
       </main>
-      {/* <footer>filter</footer> */}
+      <footer>
+        <ToDoFilter />
+      </footer>
     </>
   );
 }
