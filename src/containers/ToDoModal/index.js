@@ -8,13 +8,15 @@ import './styles.css'
 
 export default function ToDoModal({ onModalClose, onTitleUpdate, todoId, findTitle }) {
 
-  const { getFieldProps, touched, errors, isValid, handleSubmit } = useFormik({
+  const { getFieldProps, errors, handleSubmit } = useFormik({
     initialValues: {
       title: findTitle(todoId)
     },
     validationSchema: yup.object({
       title: yup.string().required('Campo obrigatório.')
     }),
+    validateOnChange: false,
+    validateOnBlur: false,
     onSubmit: (values, formikBag) => {
       onTitleUpdate(todoId, values.title)
       formikBag.setFieldValue('title', '')
@@ -31,10 +33,10 @@ export default function ToDoModal({ onModalClose, onTitleUpdate, todoId, findTit
         autoComplete="off"
         {...getFieldProps('title')}/>
 
-        <button disabled={!isValid}>Atualizar tarefa</button>
+        <button>Atualizar tarefa</button>
         <button title="Fechar" className="close" onClick={onModalClose}><AiFillCloseCircle color="white" size={20} /></button>
 
-        {touched.title && errors.title ? (
+        {errors.title ? (
           <small>{errors.title}</small>
         ) : null }
       </form>
